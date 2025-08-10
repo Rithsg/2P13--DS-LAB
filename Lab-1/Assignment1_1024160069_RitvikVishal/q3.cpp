@@ -10,3 +10,6 @@ for (i = 0; i < 5; i++)
 printf("%d",arr[i]);
 return 0;
  }
+
+// The Output of this file is '10000'
+
