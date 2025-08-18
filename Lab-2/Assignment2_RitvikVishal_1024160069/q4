@@ -1,0 +1,79 @@
+#include <iostream>
+#include <cctype>
+using namespace std;
+
+void concat(string a,string b){
+	cout << a << " " << b << endl;
+}
+
+void reverse(string a) {   
+    char temp;
+    int j = a.length()-1;     
+	for(int i =0;i<j/2;i++){
+		temp = a[i];
+		a[i] = a[j-i];
+		a[j-i] = temp;
+	}
+	cout << a << endl;
+}
+
+void novowels(string a){
+	int n = a.length();
+	for(int i = 0;i<n;i++){
+		a[i] = tolower(a[i]);
+		if(a[i] == 'a' || a[i] == 'e' || a[i] == 'i' || a[i] == 'o' || a[i] == 'u'){
+			for(int j = i; j<n-1;j++){
+				a[j] = a[j+1];
+			}
+			n--;
+			i--;
+		}
+	}
+	a.resize(n);
+	cout << a << endl;
+}
+
+void sorting(string a){
+	char temp;
+	int n = a.length();
+	for(int i = 0;i<n-1;i++){
+		for(int j = 0;j<n-i-1;j++){
+			if(a[j] > a[j+1]){
+				temp = a[j];
+				a[j] = a[j+1];
+				a[j+1] = temp;
+			}
+		}
+	}
+	cout << a <<endl;
+}
+
+void upperlower(string a){
+	int n = a.length();
+	for(int i = 0;i<n;i++){
+		if(a[i]>='a' && a[i]<='z'){
+			a[i] -= 32;
+		} else if(a[i]>='A' && a[i]<='Z'){
+			a[i] += 32;
+		}
+	}
+	cout << a << endl;
+}
+
+
+int main(){
+	string a,b;
+	cout << "Enter Two Strings:";
+	cin >> a;
+	cin >> b;
+	cout << "Concatation of two arrays : ";
+	concat(a,b);
+	cout << "Reverse of first arrays : ";
+	reverse(a);
+	cout << "Remove Vowels of first arrays : ";
+	novowels(a);
+	cout << "Sorting of first arrays : ";
+	sorting(a);
+	cout << "Reverse upper lower case of first arrays : ";
+	upperlower(a);
+}
